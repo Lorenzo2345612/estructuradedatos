@@ -23,6 +23,7 @@ public class Vista {
         System.out.println("6.- Consultar vuelo por Origen");
         System.out.println("7.- Consultar vuelo por Destino");
         System.out.println("8.- Consultar aeropuertos por ciudad");
+        System.out.println("9.- Consultar registro de vuelo de un avion");
         System.out.println("0.- Salir");
 
         return Integer.parseInt(teclado.nextLine());
@@ -172,6 +173,17 @@ public class Vista {
         for (int iterador = 0; iterador < ciudades.size(); iterador++) {
             System.out.println((iterador+1)+" "+ciudades.get(iterador));
         }
+    }
+
+    public Avion obtenerRegistroDeAvion(ArrayList<Avion> avions){
+        System.out.println("Ingrese el avion que quiere consultar");
+        imprimirListaAviones(avions);
+        return avions.get(Integer.parseInt(teclado.nextLine())-1);
+    }
+
+    public void imprimirRegistroDeVuelo(ArrayList<Vuelo> vuelos,Avion avion){
+        System.out.println("Registro de vuelo del avion con matricula"+avion.getMatricula());
+        imprimirListaVuelos(vuelos);
     }
 
 

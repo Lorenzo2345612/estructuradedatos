@@ -1,6 +1,7 @@
 package companiaAerea.Controlador;
 
 import companiaAerea.Modelo.Aeropuerto;
+import companiaAerea.Modelo.Avion;
 import companiaAerea.Modelo.Vuelo;
 
 import java.util.ArrayList;
@@ -29,6 +30,18 @@ public class Vuelos {
                 resultado.add(vuelo);
             }
         });
+        return resultado;
+    }
+
+    public ArrayList<Vuelo> obtenerVuelosPorAvion(Avion avion){
+        ArrayList<Vuelo> resultado = new ArrayList<>();
+
+        vuelos.forEach(vuelo -> {
+            if (vuelo.getAvion().equals(avion)){
+                resultado.add(vuelo);
+            }
+        });
+
         return resultado;
     }
 }

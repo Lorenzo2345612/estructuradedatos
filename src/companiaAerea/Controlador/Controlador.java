@@ -10,7 +10,6 @@ import companiaAerea.Vista.Vista;
 import java.util.ArrayList;
 
 public class Controlador {
-    private Aeropuertos aeropuertos=new Aeropuertos();
     private Aviones manejadorAviones = new Aviones();
     private Pilotos manejadorPilotos = new Pilotos();
     private Vuelos manejadorVuelos = new Vuelos();
@@ -48,7 +47,10 @@ public class Controlador {
                         break;
             case 8 :    consultarAeropuertosPorCiudad();
                         break;
-                default: break;
+            case 9 :    consultarRegistroDeVueloAvion();
+                        break;
+
+                        default: break;
         }
 
     }
@@ -168,12 +170,18 @@ public class Controlador {
         vista.imprimirListaAeropuertos(manejadorAeropuertos.consultarPorCiudad(ciudad));
     }
 
+    private void consultarRegistroDeVueloAvion(){
+        Avion avion=vista.obtenerRegistroDeAvion(manejadorAviones.obtenerAviones());
+        vista.imprimirRegistroDeVuelo(manejadorVuelos.obtenerVuelosPorAvion(avion),avion);
+    }
+
     private boolean verificarExistenciaDeIndice(int maximo, int index){
         if (index>=maximo || index<0){
             return true;
         }
         return false;
     }
+
 
 
 }

@@ -1,8 +1,8 @@
-import companiaAerea.Controlador.Controlador;
+import controlProduccionCampesinos.Controlador;
+import pruebas.PruebasControlProduccionCampesinos;
 
 public class Main {
     public static void main(String[] args) {
-        Controlador controlador = new Controlador();
-        controlador.iniciar();
+        Controlador cont = new Controlador();
     }
 }
