@@ -2,6 +2,8 @@ package estructurasLineales;
 
 import entradasalida.SalidaPorDefecto;
 
+import static utilerias.comunes.ConversorDeDatos.objectToInteger;
+
 
 /**
  * Esta clase contiene la implementacion de un TDA VectorLista para generar listas estaticas.
@@ -149,6 +151,11 @@ public class ListaEstatica implements VectorLista{
         return null;
     }
 
+    @Override
+    public Object verUltimo() {
+        return obtener(cantidad()-1);
+    }
+
 
     @Override
     public boolean esIgual(Object lista) {
@@ -294,6 +301,17 @@ public class ListaEstatica implements VectorLista{
             sublista.agregar(informacion[indiceInicial+iterador]);
         }
         return sublista;
+    }
+
+    public ListaEstatica subLista(ListaEstatica listaIndices){
+        ListaEstatica listaRespuesta = new ListaEstatica(listaIndices.cantidad());
+        for (int indice = 0; indice < listaIndices.cantidad(); indice++) {
+            Object objetoTemporal = obtener(objectToInteger(listaIndices.obtener(indice)));
+            if(objetoTemporal!=null){
+                listaRespuesta.agregar(objetoTemporal);
+            }
+        }
+        return listaRespuesta;
     }
 
     @Override

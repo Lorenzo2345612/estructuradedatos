@@ -24,6 +24,7 @@ public interface Lista {
     public void imprimirOI();
     public Object buscar(Object info);
     public Object eliminar(Object info);
+    public Object verUltimo();
 
 
     /**

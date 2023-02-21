@@ -3,7 +3,6 @@ package estructurasnolineales;
 import entradasalida.SalidaPorDefecto;
 import estructurasLineales.ListaEstatica;
 
-import java.security.KeyStore;
 
 public class Matriz3 {
 
@@ -51,7 +50,7 @@ public class Matriz3 {
     public Object obtener(int renglon, int columna, int prof){
         if (validarRango(renglon, renglones) &&
                 validarRango(columna, columnas) &&
-                validarRango(profundidad, prof)){
+                validarRango(prof, profundidad)){
 
             return informacion[renglon][columna][prof];
         }
