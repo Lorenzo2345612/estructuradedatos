@@ -336,6 +336,30 @@ public class ListaEstatica implements VectorLista{
         return true;
     }
 
+    /**
+     * Metodo que agrega un buffer de datos sobreescribiendo el arreglo actual de la clase.
+     * @param buffer Es el nuevo buffer de datos.
+     */
+    public void agregarBuffer(Object[] buffer){
+        informacion = new Object[buffer.length];
+        for (int iterador = 0; iterador < buffer.length; iterador++) {
+            informacion[iterador]=buffer[iterador];
+        }
+        tope=buffer.length-1;
+        MAXIMO=buffer.length;
+
+    }
+
+    /**
+     * Metodo que obtiene una copia del arreglo de la lista actual.
+     * @return Regresa una copia del arreglo interno de la clase.
+     */
+    public Object[] leerArreglo(){
+        ListaEstatica clon = (ListaEstatica) clonar();
+        clon.redimensionar(clon.cantidad());
+        return clon.informacion;
+    }
+
     protected boolean validarRango(int indice){
         if(indice>tope || indice<0)return false;
         return true;

@@ -20,4 +20,21 @@ public class ConversorDeDatos {
         if(!(o instanceof Integer numero))return null;
         return numero;
     }
+
+
+    public static Object[] doubleArrayToObjectArray(double[] info){
+        Object[] temporal = new Object[info.length];
+        for (int iterador = 0; iterador < info.length; iterador++) {
+            temporal[iterador]=info[iterador];
+        }
+        return temporal;
+    }
+
+    public static double[] objectArrayToDoubleArray(Object[] info){
+        double[] temporal = new double[info.length];
+        for (int iterador = 0; iterador < info.length; iterador++) {
+            temporal[iterador]=(double)info[iterador];
+        }
+        return temporal;
+    }
 }

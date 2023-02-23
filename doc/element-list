@@ -1,4 +1,6 @@
 unnamed package
+audio
+audio.wavfile
 companiaAerea.Controlador
 companiaAerea.Modelo
 companiaAerea.Vista

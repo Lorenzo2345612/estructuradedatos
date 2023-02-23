@@ -358,12 +358,18 @@ public class ListaEstaticaNumerica extends ListaEstatica{
      * la listaEstaticaNumerica
      * @return Regresa la suma del arreglo que lo contiene.
      */
-    private double suma() {
+    public double suma() {
         double resultado=0;
         for (int indice = 0; indice < cantidad(); indice++) {
             resultado+=objectToDouble(obtener(indice));
         }
         return resultado;
+    }
+
+    @Override
+    public void agregarBuffer(Object[] buffer) {
+
+        super.agregarBuffer(buffer);
     }
 
     /**
