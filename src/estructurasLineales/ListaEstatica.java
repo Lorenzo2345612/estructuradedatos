@@ -27,6 +27,7 @@ public class ListaEstatica implements VectorLista{
         return this.tope == this.VACIO;
     }
 
+
     @Override
     public boolean llena() {
         return this.tope == this.MAXIMO-1;
