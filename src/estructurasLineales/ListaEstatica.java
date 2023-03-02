@@ -275,6 +275,7 @@ public class ListaEstatica implements VectorLista{
         for (int iterador = 0; iterador < cantidad; iterador++) {
             informacion[iterador]=info;
         }
+        tope=cantidad-1;
     }
 
     @Override

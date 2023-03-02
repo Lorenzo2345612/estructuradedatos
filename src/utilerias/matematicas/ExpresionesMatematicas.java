@@ -22,8 +22,8 @@ public class ExpresionesMatematicas {
                 if(!(pila.poner(""+token)))return null;
             }else{
                 // 3 Si es operador, sacar dos operandos.
-                String operandoDos = (String) pila.quitar();
-                String operandoUno = (String) pila.quitar();
+                String operandoDos = pila.quitar().toString();
+                String operandoUno = pila.quitar().toString();
 
                 if(operandoDos==null || operandoUno==null)return null;
 
@@ -36,7 +36,42 @@ public class ExpresionesMatematicas {
             }
         }
         // 4 El resultado final esta en la pila.
-        return Double.parseDouble((String) pila.quitar());
+        String resultadoFinal =pila.quitar().toString();
+
+        if(resultadoFinal==null)return null;
+
+        return Double.parseDouble(resultadoFinal);
+    }
+
+    public static Double evaluarPreFija(String preFija){
+        PilaEstatica pila = new PilaEstatica(preFija.length());
+        for(int indiceToken=preFija.length()-1; indiceToken>=0;indiceToken--) {
+            // 1 Tokenizar izq->der
+            char token = preFija.charAt(indiceToken);
+            // 2 Si es operando meter a la pila
+            if (esOperando(""+token)){
+                if(!(pila.poner(""+token)))return null;
+            }else{
+                // 3 Si es operador, sacar dos operandos.
+                String operandoUno = pila.quitar().toString();
+                String operandoDos = pila.quitar().toString();
+
+                if(operandoDos==null || operandoUno==null)return null;
+
+                // Aplicar operacion con ellos
+                Double resultadoParcial = operacion(Double.parseDouble(operandoUno),Double.parseDouble(operandoDos), token);
+
+                if(resultadoParcial==null)return null;
+                // Meter el resultado en la pila
+                pila.poner(resultadoParcial+"");
+            }
+        }
+        // 4 El resultado final esta en la pila.
+        String resultadoFinal =pila.quitar().toString();
+
+        if(resultadoFinal==null)return null;
+
+        return Double.parseDouble(resultadoFinal);
     }
 
     public static Double operacion(double operando1, double operando2, char operador){

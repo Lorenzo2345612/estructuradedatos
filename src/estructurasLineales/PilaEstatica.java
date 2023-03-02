@@ -3,6 +3,7 @@ package estructurasLineales;
 public class PilaEstatica implements Lote{
     protected ListaEstatica pila;
 
+
     public PilaEstatica(int tamanio) {
         this.pila = new ListaEstatica(tamanio);
     }
