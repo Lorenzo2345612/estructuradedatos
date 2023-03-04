@@ -2,6 +2,7 @@ package estructurasnolineales;
 
 import entradasalida.SalidaPorDefecto;
 import estructurasLineales.ListaEstatica;
+import estructurasLineales.ListaEstaticaNumerica;
 import utilerias.comunes.TipoColumna;
 import utilerias.comunes.TipoRenglon;
 
@@ -451,6 +452,42 @@ public class Matriz2 {
             }
         }
         return respuesta;
+    }
+
+    public boolean espejoVertical(){
+        for (int columna = 0; columna < columnas/2; columna++) {
+            for (int renglon = 0; renglon < renglones; renglon++) {
+                Object listaTemporal = obtener(renglon,columna);
+                cambiar(renglon,columna,obtener(renglon,(columnas-1)-columna));
+                cambiar(renglon,((columnas-1)-columna),listaTemporal);
+            }
+        }
+        return true;
+    }
+
+    public boolean espejoHorizontal(){
+        for (int columna = 0; columna < columnas; columna++) {
+            for (int renglon = 0; renglon < renglones/2; renglon++) {
+                Object listaTemporal = obtener(renglon,columna);
+                cambiar(renglon,columna,obtener((renglones-1)-renglon,columna));
+                cambiar((renglones-1)-renglon,columna,listaTemporal);
+            }
+        }
+        return true;
+    }
+
+    public boolean girar90gradosHorario(){
+        Matriz2 matrizTemporal = new Matriz2(columnas,renglones);
+        for (int renglon = 0; renglon < renglones; renglon++) {
+            for (int columna = 0; columna < columnas; columna++) {
+                matrizTemporal.cambiar(columna,renglones-1-renglon,obtener(renglon,columna));
+            }
+        }
+        columnas= matrizTemporal.columnas;
+        renglones= matrizTemporal.renglones;
+
+        informacion=matrizTemporal.informacion;
+        return true;
     }
 
 

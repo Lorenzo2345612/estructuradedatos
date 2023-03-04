@@ -7,10 +7,14 @@ companiaAerea.Vista
 controlProduccionCampesinos
 entradasalida
 estructurasLineales
+estructurasLineales.auxiliares
 estructurasnolineales
+imagen
 pruebas
+registros.cambiosEnImagen
 registros.competenciasatleticas
 registros.empresas
 registros.indiceDeTerminos
 utilerias.comunes
+utilerias.imagenes
 utilerias.matematicas

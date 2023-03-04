@@ -367,6 +367,15 @@ public class ListaEstaticaNumerica extends ListaEstatica{
     }
 
     @Override
+    public Lista clonar() {
+        ListaEstaticaNumerica listaClonada = new ListaEstaticaNumerica(this.MAXIMO);
+        for (int iterador = 0; iterador < cantidad(); iterador++) {
+            listaClonada.agregar(obtener(iterador));
+        }
+        return listaClonada;
+    }
+
+    @Override
     public void agregarBuffer(Object[] buffer) {
 
         super.agregarBuffer(buffer);
