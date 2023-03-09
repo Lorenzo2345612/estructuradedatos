@@ -133,4 +133,9 @@ public interface Lista {
      */
     public boolean copiarLista(Lista lista2);
 
+    /**
+     * Metodo que elimina el primer elemento de la lista.
+     * @return Regresa el elemento eliminado.
+     */
+    public Object eliminarInicio();
 }

@@ -6,10 +6,12 @@ import estructurasLineales.auxiliares.Nodo;
 public class ListaDinamica implements Lista{
     protected Nodo primero;
     protected Nodo ultimo;
+    protected Nodo nodoActual;
 
     public ListaDinamica() {
         primero=null;
         ultimo=null;
+        nodoActual=null;
     }
 
     @Override
@@ -64,12 +66,71 @@ public class ListaDinamica implements Lista{
 
     @Override
     public Object buscar(Object info) {
-        return null;
+        Nodo nodoBuscado = primero;
+        while (nodoBuscado!=null && !info.toString().equalsIgnoreCase(nodoBuscado.getInfo().toString())){
+            nodoBuscado=nodoBuscado.getLigaDer();
+        }
+        return nodoBuscado==null ? null : nodoBuscado.getInfo();
     }
 
     @Override
     public Object eliminar(Object info) {
-        return null;
+        /*
+        if(vacia())return null;
+        Nodo anterior = primero;
+        if(anterior.toString().equalsIgnoreCase(info.toString())) return eliminarInicio();
+        while(anterior.getLigaDer()!=null && !anterior.getLigaDer().toString().equalsIgnoreCase(info.toString())){
+            anterior = anterior.getLigaDer();
+        }
+        if(anterior.getLigaDer()==null)return null;
+        if(anterior.getLigaDer().toString().equalsIgnoreCase(ultimo.toString()))return eliminar();
+        Nodo respaldo = anterior.getLigaDer();
+        anterior.setLigaDer(anterior.getLigaDer().getLigaDer());
+        return respaldo.getInfo();
+         */
+        if(vacia())return null;
+
+        ListaEstatica listaRetorno = buscarAnterior(info);
+        Nodo anterior = (Nodo) listaRetorno.obtener(0);
+        Nodo nodoBuscado = (Nodo) listaRetorno.obtener(1);
+        if (nodoBuscado==null)return null;
+        Object respaldo = nodoBuscado.getInfo();
+        if(primero==ultimo){
+            primero=null;
+            ultimo=null;
+        }
+        else if (nodoBuscado==primero){
+            primero=primero.getLigaDer();
+        }
+        else if (nodoBuscado==ultimo){
+            anterior.setLigaDer(null);
+            ultimo=anterior;
+        }
+        else{
+            Nodo siguiente = nodoBuscado.getLigaDer();
+            anterior.setLigaDer(siguiente);
+        }
+        return respaldo;
+
+    }
+
+    private ListaEstatica buscarAnterior(Object info){
+        ListaEstatica respuesta = new ListaEstatica(2);
+        Nodo anterior = primero;
+        Nodo nodoBuscado = primero;
+
+        while (nodoBuscado!=null && !info.toString().equalsIgnoreCase(nodoBuscado.getInfo().toString())){
+            anterior=nodoBuscado;
+            nodoBuscado=nodoBuscado.getLigaDer();
+        }
+
+        if (nodoBuscado!=null){
+            respuesta.agregar(anterior);
+            respuesta.agregar(nodoBuscado);
+        }else{
+            respuesta.rellenar(null);
+        }
+        return respuesta;
     }
 
     @Override
@@ -94,12 +155,54 @@ public class ListaDinamica implements Lista{
 
     @Override
     public Object eliminar() {
-        return null;
+        if(vacia())return null;
+        Nodo respaldo;
+        if(primero.equals(ultimo)){
+            respaldo=primero;
+            vaciar();
+            return respaldo.getInfo();
+        }
+        Nodo penultimo = primero;
+        while(!penultimo.getLigaDer().equals(ultimo)){
+            penultimo = penultimo.getLigaDer();
+        }
+        respaldo=ultimo;
+        penultimo.setLigaDer(null);
+        ultimo=penultimo;
+        return respaldo.getInfo();
+    }
+
+    @Override
+    public Object eliminarInicio(){
+        if(vacia())return null;
+        Nodo respaldo=primero;
+        if(primero.equals(ultimo)){
+            vaciar();
+            return respaldo.getInfo();
+        }
+        respaldo = primero;
+        primero = primero.getLigaDer();
+        return respaldo.getInfo();
     }
 
     @Override
     public void vaciar() {
+        primero=null;
+        ultimo=null;
+    }
 
+    public void inicializarIterador(){
+        nodoActual=primero;
+    }
+
+    public Object obtenerNodo(){
+        if(!hayNodo())return null;
+        Object respaldo = nodoActual.getInfo();
+        nodoActual=nodoActual.getLigaDer();
+        return respaldo;
+    }
+    public boolean hayNodo(){
+        return nodoActual==null;
     }
 
     @Override

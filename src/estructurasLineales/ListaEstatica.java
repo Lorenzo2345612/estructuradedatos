@@ -338,6 +338,11 @@ public class ListaEstatica implements VectorLista{
         return true;
     }
 
+    @Override
+    public Object eliminarInicio() {
+        return eliminar(0);
+    }
+
     /**
      * Metodo que agrega un buffer de datos sobreescribiendo el arreglo actual de la clase.
      * @param buffer Es el nuevo buffer de datos.

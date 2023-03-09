@@ -1,5 +1,6 @@
 package pruebas;
 
+import entradasalida.SalidaPorDefecto;
 import estructurasLineales.ListaDinamica;
 
 public class PruebaListaDinamica {
@@ -11,6 +12,16 @@ public class PruebaListaDinamica {
         lista.agregar(4);
         lista.agregar(5);
 
+        lista.imprimir();
+
+        SalidaPorDefecto.terminal("Eliminando: "+lista.eliminar()+".\n");
+
+        lista.imprimir();
+
+        SalidaPorDefecto.terminal("Eliminando: "+lista.eliminarInicio()+".\n");
+
+        lista.imprimir();
+        lista.eliminar(6);
         lista.imprimir();
     }
 }
