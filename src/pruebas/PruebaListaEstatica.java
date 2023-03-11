@@ -6,6 +6,7 @@ import estructurasLineales.ListaEstaticaOrdenada;
 
 public class PruebaListaEstatica {
     public static void main(String [] args){
+        /*
         ListaEstatica lista = new ListaEstatica(10);
         lista.agregar("A");
         lista.agregar("B");
@@ -42,6 +43,11 @@ public class PruebaListaEstatica {
         probarMetodosEliminar(lista2);
 
         probarMetodoInsertar(lista);
+
+         */
+        ListaEstatica lista = new ListaEstatica(3);
+        lista.insertar(0,2);
+        lista.imprimir();
 
     }
 

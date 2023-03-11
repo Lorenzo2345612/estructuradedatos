@@ -320,7 +320,7 @@ public class ListaEstatica implements VectorLista{
     public boolean insertar(int indice, Object info) {
         if(!validarRango(indice))return false;
         if (llena())return false;
-        for (int indiceActual = cantidad()-1; indiceActual <= indice; indiceActual++) {
+        for (int indiceActual = cantidad()-1; indiceActual >= 0; indiceActual--) {
             informacion[indiceActual+1]=informacion[indiceActual];
         }
         tope++;

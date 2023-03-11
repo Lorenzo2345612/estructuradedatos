@@ -73,6 +73,7 @@ public class ColaEstatica implements Lote{
                 SalidaPorDefecto.terminal(informacion[indice]+" ");
             }
         }
+        SalidaPorDefecto.terminal("\n");
     }
 
     @Override
