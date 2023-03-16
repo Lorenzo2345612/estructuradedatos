@@ -2,8 +2,10 @@ package utilerias.matematicas;
 
 import entradasalida.EntradaPorDefecto;
 import estructurasLineales.ColaEstatica;
+import estructurasLineales.ListaEstatica;
 import estructurasLineales.PilaEstatica;
 import registros.calculadora.VistaCalculadora;
+import utilerias.comunes.TipoError;
 
 public class ExpresionesMatematicas {
     /**
@@ -319,4 +321,5 @@ public class ExpresionesMatematicas {
         VistaCalculadora.obtenerValorVariable(nombreVariable);
         return EntradaPorDefecto.consolaCadenas();
     }
+
 }

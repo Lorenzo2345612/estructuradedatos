@@ -8,6 +8,9 @@ import registros.empresas.Empleado2;
 import registros.empresas.Empresa;
 import registros.empresas.Empresa2;
 
+/**
+ *
+ **/
 public class PruebaEmpresa2 {
     public static void main(String[] args) {
         Empresa2 empresa= new Empresa2("Patito");

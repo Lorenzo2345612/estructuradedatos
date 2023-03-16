@@ -6,6 +6,7 @@ companiaAerea.Modelo
 companiaAerea.Vista
 controlProduccionCampesinos
 entradasalida
+entradasalida.archivos
 estructurasLineales
 estructurasLineales.auxiliares
 estructurasnolineales
@@ -15,6 +16,7 @@ registros.calculadora
 registros.cambiosEnImagen
 registros.competenciasatleticas
 registros.empresas
+registros.examenParcial1.Programa1
 registros.indiceDeTerminos
 registros.SimuladorProcesos
 utilerias.comunes

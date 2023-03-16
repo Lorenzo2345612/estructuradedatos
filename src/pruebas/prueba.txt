@@ -1,0 +1,11 @@
+public class Matematicas
+{
+    private static double gaussiana (double x, double media, double desv )
+    {
+        int w = 2;
+        char q = '3';
+        Character miu='j';
+        Integer i = 1;
+        return i + q;
+    }
+}
