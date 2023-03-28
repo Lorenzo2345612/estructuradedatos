@@ -138,4 +138,17 @@ public interface Lista {
      * @return Regresa el elemento eliminado.
      */
     public Object eliminarInicio();
+
+    /**
+     * Sirve para obtener un elemento por indice.
+     * @param indice Es el indice que queremos comparar.
+     * @return Regresa el elemento que se encuentra en la posicion indicada.
+     */
+    public Object obtener(int indice);
+
+    /**
+     * Metodo para obtener la cantidad de elementos que hay en la lista.
+     * @return Regresa la cantidad de elementos que tiene la lista.
+     */
+    public int cantidad();
 }

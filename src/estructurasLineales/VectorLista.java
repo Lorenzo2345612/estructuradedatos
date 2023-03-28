@@ -9,13 +9,6 @@ public interface VectorLista extends Lista{
     public boolean llena();
 
     /**
-     * Sirve para obtener un elemento por indice.
-     * @param indice Es el indice que queremos comparar.
-     * @return Regresa el elemento que se encuentra en la posicion indicada.
-     */
-    public Object obtener(int indice);
-
-    /**
      * Cambia un objeto por otro en un indice especificado.
      * @param indice Es el indice del elemento que debemos cambiar.
      * @param info Es el elemento nuevo que queremos ingresar.
@@ -50,10 +43,4 @@ public interface VectorLista extends Lista{
      * @return Regresa el tamaño maximo de la lista.
      */
     public int maximo();
-
-    /**
-     * Metodo para obtener la cantidad de elementos que hay en la lista.
-     * @return Regresa la cantidad de elementos que tiene la lista.
-     */
-    public int cantidad();
 }

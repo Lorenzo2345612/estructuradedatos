@@ -64,7 +64,7 @@ public class ListaDinamicaDoble implements Lista{
 
     @Override
     public Object verUltimo() {
-        return null;
+        return ultimo==null? null : ultimo.getInfo();
     }
 
     @Override
@@ -154,5 +154,15 @@ public class ListaDinamicaDoble implements Lista{
     @Override
     public Object eliminarInicio() {
         return null;
+    }
+
+    @Override
+    public Object obtener(int indice) {
+        return null;
+    }
+
+    @Override
+    public int cantidad() {
+        return 0;
     }
 }
